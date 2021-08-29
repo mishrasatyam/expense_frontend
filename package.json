@@ -9,6 +9,7 @@
   "devDependencies": {
     "@sveltejs/adapter-node": "next",
     "@sveltejs/kit": "next",
+    "canvas-confetti": "^1.4.0",
     "svelte": "^3.42.4",
     "vite-plugin-windicss": "latest"
   },

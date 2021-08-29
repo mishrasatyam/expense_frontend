@@ -1,6 +1,5 @@
 <script context="module">
     export async function load({session}){
-        console.log(session)
         if(!session?.user){ 
             return {
                 redirect : '/auth/login/',
@@ -16,8 +15,9 @@
 </script>
 <script>
     import 'virtual:windi.css'
-    export let user
+    import TopBar from '$lib/Layout/TopBar.svelte';
 </script>
-<h1>{user?.username}</h1>
-<a href="/auth/api/logout">Logout</a>
+<TopBar/>
+<div class="p-3">
 <slot/>
+</div>
