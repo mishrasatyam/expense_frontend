@@ -3,8 +3,9 @@
     import {createEventDispatcher} from 'svelte'
     export let result,page_count,current_page;
     let table_row = [{name:'Name',th_class:'w-1/3',property:'name'},
-    {name:'Cost',th_class:'w-1/3',property:'cost'},
-    {name:'Category',th_class:'w-1/3',property:'category'}]
+    {name:'Cost',th_class:'w-1/4',property:'cost'},
+    {name:'Category',th_class:'w-1/4',property:'category'},
+    {name:'Date',th_class:'w-1/4',property:'created_at'}]
 
     const dispatch = createEventDispatcher();
     function handlePageChange(event){
@@ -25,7 +26,11 @@
             {#each result as res}
                 <tr class="border">
                     {#each table_row as el}
+                    {#if el.property=='created_at'}
+                        <td class="p-2 border-r">{new Date(res[el.property]).toLocaleDateString('en-IN')}</td>
+                    {:else}
                         <td class="p-2 border-r">{res[el.property]}</td>
+                    {/if}    
                     {/each}
                 </tr>
             {/each}

@@ -55,6 +55,7 @@
         const res = await fetch(url,{credentials:'include'})
         if(res.status==401){
             goto('/auth/api/logout')
+            return
         }else if(res.status==200){
             if(search_type=='name'){
                 name_search_list = await res.json()

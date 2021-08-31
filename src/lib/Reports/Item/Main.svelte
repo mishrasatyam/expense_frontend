@@ -35,5 +35,5 @@
         }
     }
 </script>
-<TabHeader bind:tab_list bind:tab_now />
+<TabHeader bind:tab_list bind:tab_now on:tab_click={()=>search=undefined}/>
 <svelte:component this={tab_now[1]} {search_list} bind:search/>
