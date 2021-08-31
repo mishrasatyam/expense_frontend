@@ -10,6 +10,7 @@ export async function handle({ request, resolve }) {
 }
 
 export function getSession({ locals }) {
+	console.log('get session running',locals)
 	return {
 		user: locals.user && {
 			username: locals.user?.username,
