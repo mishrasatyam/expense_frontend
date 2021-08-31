@@ -4,8 +4,12 @@ specifiers:
   '@sveltejs/adapter-node': next
   '@sveltejs/kit': next
   canvas-confetti: ^1.4.0
+  cookie: ^0.4.1
   svelte: ^3.42.4
   vite-plugin-windicss: latest
+
+dependencies:
+  cookie: 0.4.1
 
 devDependencies:
   '@sveltejs/adapter-node': 1.0.0-next.43
@@ -238,6 +242,11 @@ packages:
   /concat-map/0.0.1:
     resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
     dev: true
+
+  /cookie/0.4.1:
+    resolution: {integrity: sha512-ZwrFkGJxUR3EIoXtO+yVE69Eb7KlixbaeAWfBQB9vVsNn/o+Yw69gBWSSDK825hQNdN+wF8zELf3dFNl/kxkUA==}
+    engines: {node: '>= 0.6'}
+    dev: false
 
   /cross-spawn/7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
