@@ -15,7 +15,9 @@
     <slot/>
 </div>
 
-<style>
+<!-- 
+    sadly this wasn't working :(
+    <style>
     :global(input) {
 		/* this will apply to <body> */
 		@apply shadow-lg w-full rounded-lg focus:outline-none p-3 my-2
@@ -32,4 +34,4 @@
     :global(a){
         @apply block text-blue-500 my-1.5 p-1
     }
-</style>
+</style> -->

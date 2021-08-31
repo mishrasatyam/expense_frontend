@@ -8,6 +8,8 @@
     let error;
     let i
     export let show_add_expense_modal = false
+    let name_search_list = []
+    let category_search_list = []
     let show_success_msz = false
     async function handleSubmit(){
         i=undefined
@@ -33,6 +35,8 @@
                 if(i==0){
                     show_add_expense_modal = false
                     show_success_msz = false
+                    name = category = undefined
+                    cost = null
                 }
             },1000)
         }else{
@@ -40,6 +44,30 @@
             error = data.error
         }
     }
+
+    async function suggestions(search_type){
+        let url = `${api_url}/suggestions/?`
+        if(search_type=='name'){
+            url+=`${search_type}=${name}`
+        }else{
+            url+=`${search_type}=${category}`
+        }     
+        const res = await fetch(url,{credentials:'include'})
+        if(res.status==401){
+            goto('/auth/api/logout')
+        }else if(res.status==200){
+            if(search_type=='name'){
+                name_search_list = await res.json()
+            }else{
+                category_search_list = await res.json()
+                console.log(category_search_list)
+            }
+        }
+    }
+
+$:if(name){suggestions('name')}else{name_search_list=[]}
+$:if(category){suggestions('category')}else{category_search_list=[]}
+
 </script>
 
 <Modal bind:open={show_add_expense_modal} show_cancel_button={true} header="Add Expense">
@@ -47,9 +75,20 @@
         <h2 class="text-center p-3">Expense added for {cost}, redirecting in {i} seconds!</h2>
     {:else}
         <form class="text-center" on:submit|preventDefault={handleSubmit}>
-            <input bind:value={name} placeholder="Name" required>
+            <input list ="name_list" bind:value={name} placeholder="Name" required>
+            <datalist id="name_list">
+                {#each name_search_list as el}
+                <option>{el.name}</option>
+                {/each}
+            </datalist>
+            
             <input bind:value={cost} min="0" step="0.01" placeholder="Cost" type="number" required>
-            <input bind:value={category} placeholder="Category" required>
+            <input list="category_list" bind:value={category} placeholder="Category" required>
+            <datalist id="category_list">
+                {#each category_search_list as el}
+                <option>{el.name}</option>
+                {/each}
+            </datalist>
             <span class="text-red-500 my-1">
                 {#if error}
                 {error}
