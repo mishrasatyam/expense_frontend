@@ -2,6 +2,7 @@
     import {api_url} from '$lib/util'
     export async function load({session,fetch}){
         const url = `${api_url}/expense_list/`
+        console.log(url)
         const res = await fetch(url,{credentials:'include'})
         console.log(res)
         // if(res.status==401){
