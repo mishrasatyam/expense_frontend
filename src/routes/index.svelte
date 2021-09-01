@@ -3,18 +3,19 @@
     export async function load({session,fetch}){
         const url = `${api_url}/expense_list/`
         const res = await fetch(url,{credentials:'include'})
-        if(res.status==401){
-            return {
-                redirect:'/auth/api/logout',
-                status:302
-            }
-        }
-        if(res.status!=200){
-            return {
-                redirect:'/auth/api/logout',
-                status:302
-            }
-        }
+        // if(res.status==401){
+        //     return {
+        //         redirect:'/auth/api/logout',
+        //         status:302
+        //     }
+        // }
+        // if(res.status!=200){
+        //     return {
+        //         redirect:'/auth/api/logout',
+        //         status:302
+        //     }
+        // }
+        console.log(res.status)
         const {result,current_page,page_count} = await res.json()
         return {
             props  :{
