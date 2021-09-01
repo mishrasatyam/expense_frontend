@@ -1,5 +1,6 @@
 <script context="module">
     export async function load({session}){
+        alert(session?.user?.username)
         if(!session?.user){ 
             return {
                 redirect : '/auth/login/',
