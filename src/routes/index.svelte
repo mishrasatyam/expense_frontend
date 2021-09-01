@@ -4,6 +4,7 @@
         const url = `${api_url}/expense_list/`
         const res = await fetch(url,{credentials:'include'})
         if(res.status==401){
+            alert(401)
             return {
                 redirect:'/auth/api/logout',
                 status:302
