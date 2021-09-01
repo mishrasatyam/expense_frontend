@@ -7,6 +7,7 @@ export async function post({body}){
     body = JSON.stringify(body)
     const res = await fetch(url,{method,headers,body})
     const status  = res.status
+    console.log(res.headers.get('set-cookie'))
     if(status==200){
         return {
             headers  :{
