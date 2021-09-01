@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
-    "preview": "svelte-kit preview"
+    "preview": "svelte-kit preview",
+    "deploy":"git pull && pnpm install && pnpm build && pm2 restart 0"
   },
   "devDependencies": {
     "@sveltejs/adapter-node": "next",
