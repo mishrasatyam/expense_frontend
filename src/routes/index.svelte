@@ -3,6 +3,7 @@
     export async function load({session,fetch}){
         const url = `${api_url}/expense_list/`
         const res = await fetch(url,{credentials:'include'})
+        alert(res.status)
         if(res.status==401){
             alert(401)
             return {
