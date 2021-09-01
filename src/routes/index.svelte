@@ -3,6 +3,7 @@
     export async function load({session,fetch}){
         const url = `${api_url}/expense_list/`
         const res = await fetch(url,{credentials:'include'})
+        console.log(res)
         // if(res.status==401){
         //     return {
         //         redirect:'/auth/api/logout',
