@@ -4,7 +4,7 @@
         const url = `${api_url}/expense_list/`
         console.log(url)
         const res = await fetch(url,{credentials:'include'})
-        console.log(res)
+        console.log(res)//this is not sending cookie
         // if(res.status==401){
         //     return {
         //         redirect:'/auth/api/logout',
@@ -56,7 +56,7 @@
     async function test(){
         const url = `${api_url}/expense_list/`
         const res = await fetch(url,{credentials:'include'})
-        console.log(res)
+        console.log(res)////this is sending cookie
     }
 </script>
 <AddExpense bind:show_add_expense_modal on:expense_added={()=>{page=1;fetch_data()}}/>
