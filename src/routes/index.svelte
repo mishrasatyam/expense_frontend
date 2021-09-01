@@ -31,6 +31,7 @@
     import AddExpense from "$lib/AddExpense.svelte";
     import ExpenseTable from "$lib/ExpenseTable.svelte";
     import { goto } from '$app/navigation';
+    import { browser } from '$app/env';
     let show_add_expense_modal = false
     let page;
     
@@ -46,6 +47,15 @@
             goto('/auth/login')
         }
 
+    }
+    if(browser){
+        test()
+        
+    }
+    async function test(){
+        const url = `${api_url}/expense_list/`
+        const res = await fetch(url,{credentials:'include'})
+        console.log(res)
     }
 </script>
 <AddExpense bind:show_add_expense_modal on:expense_added={()=>{page=1;fetch_data()}}/>
