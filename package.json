@@ -5,9 +5,10 @@
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
     "preview": "svelte-kit preview",
-    "deploy":"git pull && pnpm install && pnpm build && pm2 restart 0"
+    "deploy": "git pull && pnpm install && pnpm build && pm2 restart 0"
   },
   "devDependencies": {
+    "@sveltejs/adapter-netlify": "^1.0.0-next.30",
     "@sveltejs/adapter-node": "next",
     "@sveltejs/kit": "next",
     "canvas-confetti": "^1.4.0",
