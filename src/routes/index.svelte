@@ -5,18 +5,18 @@
         console.log(url)
         const res = await fetch(url,{credentials:'include'})
         console.log(res)//this is not sending cookie
-        // if(res.status==401){
-        //     return {
-        //         redirect:'/auth/api/logout',
-        //         status:302
-        //     }
-        // }
-        // if(res.status!=200){
-        //     return {
-        //         redirect:'/auth/api/logout',
-        //         status:302
-        //     }
-        // }
+        if(res.status==401){
+            return {
+                redirect:'/auth/api/logout',
+                status:302
+            }
+        }
+        if(res.status!=200){
+            return {
+                redirect:'/auth/api/logout',
+                status:302
+            }
+        }
         console.log(res.status)
         const {result,current_page,page_count} = await res.json()
         return {
