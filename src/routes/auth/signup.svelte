@@ -16,7 +16,7 @@
             goto('/auth/login/')
         }else if(res.status==401){
             const data = await res.json()
-            error = data.error
+            error = data.message
         }
     }
     </script>
