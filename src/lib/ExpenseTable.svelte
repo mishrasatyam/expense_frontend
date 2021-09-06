@@ -14,6 +14,7 @@
 </script>
 
 {#if result?.length>0}
+    <div class="rounded-lg shadow-lg">
     <table class="table-fixed w-full">
         <thead class="bg-blue-500 text-white">
             <tr class="border">
@@ -36,6 +37,7 @@
             {/each}
         </tbody>
     </table>
+    </div>
     <div>
         <Pagination {page_count} {current_page} on:goto_page={handlePageChange}/>
     </div>
