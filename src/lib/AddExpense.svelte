@@ -52,7 +52,7 @@
         }else{
             url+=`${search_type}=${category}`
         }     
-        const res = await fetch(url,{credentials:'include'})
+        const res = await fetch(url)
         if(res.status==401){
             goto('/auth/api/logout')
             return

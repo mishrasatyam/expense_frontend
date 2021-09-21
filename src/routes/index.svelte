@@ -3,7 +3,7 @@
     export async function load({session,fetch}){
         const url = `${api_url}/expense_list/`
         console.log(url)
-        const res = await fetch(url,{credentials:'include'})
+        const res = await fetch(url)
         console.log(res)//this is not sending cookie
         if(res.status==401){
             return {
