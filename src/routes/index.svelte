@@ -2,7 +2,7 @@
     import {api_url} from '$lib/util'
     export async function load({session,fetch}){
         const url = `${api_url}/expense_list/`
-        console.log(url)
+        console.log(11,url)
         const res = await fetch(url)
         console.log(res)//this is not sending cookie
         if(res.status==401){
